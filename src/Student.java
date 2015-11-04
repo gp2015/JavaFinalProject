@@ -4,106 +4,104 @@ public class Student
 		{
 			
 			protected String studentID;
-			protected String firstName;
-			protected String lastName;
-			protected String email;
-			protected String age;
-			protected String[] grades = new String[3];
+			protected String firstname;
+			protected String lastname;
+			protected String emailaddress;
+			protected int age;
+			protected int[] grades = new int[3];
 			
 			// Student object property setter
-			public Student(String studentArr)
+			public Student(String studentID, String firstname, String lastname, String emailaddress, int age, int grade1, int grade2, int grade3)
 			{
-				String[] student = studentArr.split(",\\s+");
-				
-				this.studentID = student[0].replace("[", "");
-				this.firstName = student[1];
-				this.lastName = student[2];
-				this.email = student[3];
-				this.age = student[4];
-				this.grades[0] = student[5];
-				this.grades[1] = student[6];
-				this.grades[2] = student[7].replace("]", "");
-			}
+				this.studentID = studentID;
+				this.firstname = firstname;
+				this.lastname = lastname;
+				this.emailaddress = emailaddress;
+				this.age = age;
+				this.grades[0] = grade1;
+				this.grades[1] = grade2;
+				this.grades[2] = grade3;
+			};
 			
 			// Student ID setter / mutator
 			public void setID(String studentID)
 			{
 				this.studentID = studentID;
-			}
+			};
 			
 			// Student ID getter / accessor
 			public String getID()
 			{
 				return this.studentID;
-			}
+			};
 			
 			// Student first name setter / mutator
-			public void setFirstName(String firstName)
+			public void setFirstname(String firstname)
 			{
-				this.firstName = firstName;
-			}
+				this.firstname = firstname;
+			};
 			
 			// Student first name getter / accessor
-			public String getFirstName()
+			public String getFirstname()
 			{
-				return this.firstName;
-			}
+				return this.firstname;
+			};
 			
 			// Student last name setter / mutator
-			public void setLastName(String lastName)
+			public void setLastname(String lastname)
 			{
-				this.lastName = lastName;
-			}
+				this.lastname = lastname;
+			};
 			
 			// Student last name getter / accessor
-			public String getLastName()
+			public String getLastname()
 			{
-				return this.lastName;
-			}			
+				return this.lastname;
+			};		
 			
 			// Student email setter / mutator
 			public void setEmail(String email)
 			{
-				this.email = email;
-			}
+				this.emailaddress = email;
+			};
 			
 			// Student email getter / accessor
 			public String getEmail()
 			{
-				return this.email;
-			}			
+				return this.emailaddress;
+			};		
 			
 			// Student age setter / mutator
-			public void setAge(String age)
+			public void setAge(int age)
 			{
 				this.age = age;
-			}
+			};
 			
 			// Student age getter / accessor
-			public String getAge()
+			public int getAge()
 			{
 				return this.age;
-			}			
+			};		
 			
 			// Student grades setter / mutator
-			public void setGrades(String grade0, String grade1, String grade2)
+			public void setGrades(int grade0, int grade1, int grade2)
 			{
 				this.grades[0] = grade0;
 				this.grades[1] = grade1;
 				this.grades[2] = grade2;
-			}
+			};
 			
 			// Student grades getter / accessor
 			public String getGrades()
 			{	
 				return Arrays.toString(this.grades);
-			}
+			};
 			
 			public Object getProperties()
 			{
 				String properties;
-				properties = this.getID() + " " + this.getFirstName() + " "  + this.getLastName() + " "  + this.getEmail() + " "  + this.getAge() + " "  + this.getGrades();
+				properties = this.getID() + " " + this.getFirstname() + " "  + this.getLastname() + " "  + this.getEmail() + " "  + this.getAge() + " "  + this.getGrades();
 				return properties;
-			}
+			};
 			
-		}
+		};

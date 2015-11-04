@@ -1,62 +1,37 @@
-import java.util.Arrays;
-import java.util.ArrayList;
-
 public class Main 
 {
 	public static void main(String[] args) {
-		
-		// test constructor
-		String georgeString = "10, firstName, lastName, email@domain.com, 10, 100, 99, 98";
-		Student george = new Student(georgeString);
-		System.out.println(george.getProperties());
 		
 		String[] students = {
 				"1, John, Smith, John1989@gmail.com, 20, 88, 79, 59",
 				"2, Suzan, Erickson, Erickson_1990@gmail.com, 19, 91, 72, 85",
 				"3, Jack, Napoli, The_lawyer99@yahoo.com, 19, 85, 84, 87",
-				"4, Erin, Black, Erin.black@comcast.net, 22, 91,98, 82",
+				"4, Erin, Black, Erin.black@comcast.net, 22, 91, 98, 82",
 				"5, George, Perez, gpere17@wgu.edu, 25, 98, 99, 100"
+		};	
+		
+		for (int i = 0; i < students.length; i++)
+		{
+			String studentRecordString = students[i];
+			studentRecordString.replace(" ", "");
+			String[] studentRecordArr = studentRecordString.split(", ");
+			
+			Roster.add(studentRecordArr[0], studentRecordArr[1], studentRecordArr[2], studentRecordArr[3], Integer.parseInt(studentRecordArr[4]), Integer.parseInt(studentRecordArr[5]), Integer.parseInt(studentRecordArr[6]), Integer.parseInt(studentRecordArr[7]));
+		
 		};
 		
-		ArrayList<Student> studentList = new ArrayList<>();
+		Roster.print_all();
+		Roster.print_invalid_emails();
 		
-		for (String studentRecord : students)
+		for (Student record : Roster.roster)
 		{
-			String[] studentStringAsArr = studentRecord.split(",");
-			String studentString = Arrays.toString(studentStringAsArr);
-			studentList.add(new Student(studentString));
-		}
+			Roster.print_average_grade(record.getID());
+		};
 		
-		for (int i = 0; i < studentList.size(); i++)
-		{
-			System.out.println(studentList.get(i).getGrades());
-		}
+		System.out.println("");
 		
-		Student tester = studentList.get(0);
+		Roster.remove("3");
+		Roster.remove("3");
 		
-		System.out.println(tester.getID());
-		studentList.get(0).setID("12345");
-		System.out.println(tester.getID());
-		
-		System.out.println(tester.getFirstName());
-		tester.setFirstName("Donald");
-		System.out.println(tester.getFirstName());
-		
-		System.out.println(tester.getLastName());
-		tester.setLastName("Trump");
-		System.out.println(tester.getLastName());
-		
-		System.out.println(tester.getEmail());
-		tester.setEmail("pp@aol.com");
-		System.out.println(tester.getEmail());
-		
-		System.out.println(tester.getAge());
-		tester.setAge("122");
-		System.out.println(tester.getAge());
-		
-		System.out.println(tester.getGrades());
-		tester.setGrades("12399", "141", "1231541235");
-		System.out.println(tester.getGrades());
-		
-	}
-}
+	};
+};
