@@ -78,6 +78,10 @@ public class Roster {
 		if (invalidEmails.length() > 0)
 		{
 			System.out.println("Invalid email addresses:\n" + invalidEmails);
+		}
+		else
+		{
+			System.out.println("No invalid email addresses found.\n");
 		};
 	};
 };
